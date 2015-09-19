@@ -37,15 +37,11 @@ map_data$region    <- gsub("\\b([a-z])([a-z]+)", "\\U\\1\\L\\2" ,map_data$region
 names(map_data)[5] <- "state"
 
 
-states <- join(state,map_data,by="state")
-
-
-
 
 #variables of interest from UI:
-     ##division
-     ##color
-     ##display
+##division
+##color
+##display
 
 shinyServer(function(input, output) {
      output$display   <- renderText(input$display)
@@ -65,16 +61,16 @@ shinyServer(function(input, output) {
      })
      colors<-reactive({
           list(palette = switch(input$color,
-                                   "red"  = "Reds",
-                                   "blue" = "Blues",
-                                   "green"= "Greens",
-                                   "gray" = "Greys"),
+                                "red"  = "Reds",
+                                "blue" = "Blues",
+                                "green"= "Greens",
+                                "gray" = "Greys"),
                single  = switch(input$color,
-                                   "red"  = "#DE2D26",
-                                   "blue" = "#3182BD",
-                                   "green"= "#31A354",
-                                   "gray" = "#636363")
-               )
+                                "red"  = "#DE2D26",
+                                "blue" = "#3182BD",
+                                "green"= "#31A354",
+                                "gray" = "#636363")
+          )
      })
      varname<-reactive({
           switch(input$display,
@@ -93,13 +89,16 @@ shinyServer(function(input, output) {
                scale_fill_distiller(palette = colors()$palette,name=varname()) +
                theme(legend.position="top")
           g
-                    
+          
      })
      output$hist   <- renderPlot({
+          df<- aggregate(variable~state,data=sub.states(),FUN=max)
           g <- ggplot(data=sub.states(), aes(x=variable)) + 
-               geom_histogram(colour="white",fill=colors()$single)
+               geom_histogram(colour="white",fill=colors()$single) +
+               xlab(varname()) +
+               scale_y_continuous(breaks=NULL)
           g
      })
 })
-     
+
 #Main Page 

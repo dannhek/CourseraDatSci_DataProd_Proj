@@ -12,6 +12,7 @@ Data come from R's [Datasets](https://stat.ethz.ch/R-manual/R-devel/library/data
 ```r
 data(state)
 ```
+Further Description of Data can be found at [CRAN](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/state.html)
 
 Available Features
 ========================================================
@@ -39,11 +40,3 @@ The State Comparisons application can be accessed in two ways:
 
 1. Shinyapp.io
 2. Download from github: https://github.com/dannhek/CourseraDatSci_DataProd_Proj and launch from within RStudio
-
-
-
-References
-========================================================
- - Further Description of Data: [CRAN](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/state.html)
- - This app was developed as a project within the Coursera Data Science Specialization Data Products course. More information about Coursera, the Data Science Specialization, and its teachers can be found on the [Coursera Website](https://www.coursera.org/specializations/jhudatascience)
- - Developing Shiny Apps: http://shiny.rstudio.com/
