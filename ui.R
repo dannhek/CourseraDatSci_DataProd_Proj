@@ -62,7 +62,8 @@ shinyUI(fluidPage(
                                a("here.", href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/state.html")),
                              h2("About this App"),
                              p("This app was created as part of Coursera's Data Science Specialization, for the Data Products course."),
-                             p("Source code is available at", a("Github",href="https://github.com/dannhek/CourseraDatSci_DataProd_Proj"))
+                             p("Source code is available at", a("Github.",href="https://github.com/dannhek/CourseraDatSci_DataProd_Proj")),
+                             p("A presentation describing the features of this app is available at", a("Rpubs.", href="http://rpubs.com/tattooed_economist/110141"))
                     )
                )
           )
